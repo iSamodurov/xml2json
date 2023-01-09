@@ -5,6 +5,7 @@
  * @author: JuneCheng
  * @date: 2021/05/23 18:04:54
  */
+import 'dart:developer';
 
 part of xml2json;
 
@@ -74,6 +75,7 @@ class _Xml2JsonParkerWithAttrs {
   /// Analyze the attribute value in the node
   void _parseAttrs(dynamic node, dynamic obj) {
     node.attributes.forEach((attr) {
+      log("${attr.value}");
       obj!['"_${attr.name.qualified}"'] = '"${attr.value}"';
     });
   }
