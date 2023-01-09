@@ -76,7 +76,8 @@ class _Xml2JsonParkerWithAttrs {
   void _parseAttrs(dynamic node, dynamic obj) {
     node.attributes.forEach((attr) {
       log("${attr.value}");
-      obj!['"_${attr.name.qualified}"'] = '"${attr.value}"';
+      final attrValue = attr.value.replaceAll('"', '\"');
+      obj!['"_${attr.name.qualified}"'] = '"$attrValue"';
     });
   }
 
